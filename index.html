@@ -84,7 +84,7 @@
         .pink-snake {
             position: absolute;
             bottom: 1.875rem;
-            left: 1.75rem;
+            left: 11.75rem;
             height: 25.3125rem;
             width: 6.25rem;
             rotate: 20deg;
@@ -127,7 +127,7 @@
 </head>
 
 <body>
-    <div class="game-container">
+    <div align="center">
         <div style="width: 28.125rem; height: 28.125rem; scale: 0.75; position: relative; display: flex; justify-content: end;">
             <table class="game-table">
                 <tr>
@@ -173,7 +173,7 @@
             <div class="coin" id="dice-coin"></div>
         </div>
     </div>
-    <div class="dice-section">
+    <div align="center">
         <button id="dice" onclick="rollDice(this)">6</button>
     </div>
     <script>
@@ -282,8 +282,8 @@
                 for (var i = end > start ? start + 1 : start; end > start ? i <= end : i >= end; end > start ? i++ : i--) {
                     await new Promise((res) => {
                         setTimeout(() => {
-                            dice_coin.style.left = leftFinder(i) + "px"
-                            dice_coin.style.bottom = bottomFinder(i) + "px"
+                            dice_coin.style.left = leftFinder(i) + "rem"
+                            dice_coin.style.bottom = bottomFinder(i) + "rem"
                             res()
                         }, 600);
                     });
