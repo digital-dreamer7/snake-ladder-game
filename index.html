@@ -192,6 +192,7 @@
 
         #dice {
             width: 3.75rem;
+            bottom: 12;
             height: 3.75rem;
             border: none;
             box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.4);
@@ -370,13 +371,16 @@
             51: 15,
             43: 21
         }
-        var left_start = -3.81;
+        var left_start = -3.8125;
         var bottom_start = 1.25;
         var moving_diff = 4.8125;
+        var isEnabled = true;
 
         function rollDice(e, dice_number) {
-            dice_number = dice_number || Math.ceil(Math.random() * 6);
             e = e || document.getElementById('dice')
+            if (current_point == starting_point || isEnabled) {
+                isEnabled = false;
+            dice_number = dice_number || Math.ceil(Math.random() * 6);
             e.style.rotate = '0deg';
             e.style.transition = 'all 0ms'
             var dice_coin = document.getElementById('dice-coin');
@@ -429,6 +433,19 @@
                 positionSetter(current_point - dice_number, current_point, "tuktuk")
 
             }, 600);
+        } else {var dice_coin = document.getElementById('dice-coin');
+                var left = dice_coin.offsetLeft / 16;
+                var bottom = (dice_coin.offsetParent.offsetHeight - (dice_coin.offsetHeight + dice_coin.offsetTop)) / 16
+                console.log('left-finder', leftFinder(current_point));
+                console.log('left', left);
+                console.log('bottom-finder', bottomFinder(current_point));
+                console.log('bottom', bottom);
+                if(leftFinder(current_point) == left && bottomFinder(current_point) == bottom) {
+                    isEnabled = true;
+                    rollDice();
+                }
+                
+            }
         }
 
         function bottomFinder(current_point) {
