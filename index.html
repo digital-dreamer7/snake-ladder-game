@@ -20,7 +20,21 @@
             bottom: 0;
             right: 0;
             top: 0;
-            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .title {
+            text-align: center;
+            color: rgb(246, 244, 251);
+            font-family: 'Courier New', Courier, monospace;
+            letter-spacing: 3px;
+            font-size: 40px;
+        }
+
+        .title::first-letter {
+            color: rgb(255, 0, 0);
+            font-size: 64px;
+            text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.441);
+            font-family: Georgia, 'Times New Roman', Times, serif;
         }
         
         * {
@@ -210,6 +224,7 @@
 </head>
 
 <body>
+    <h1 class="title">DD Games</h1>
     <div align="center">
         <div style="width: 48.125rem; height: 48.125rem; scale: 0.98; position: relative; display: flex; justify-content: end;">
             <table class="game-table">
